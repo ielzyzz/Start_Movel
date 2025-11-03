@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Móvel</title>
+
+<link rel="icon" type="image/png" href="img/logo mov.jpg" sizes="148x148">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https//fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+
+    <script>
+        // Configuração do Tailwind para o tema escuro e fontes
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'start-gold': {
+                            DEFAULT: '#F59E0B', // amber-500
+                            light: '#FBBF24', // amber-400
+                            dark: '#B45309',  // amber-700
+                        },
+                        'start-dark': {
+                            DEFAULT: '#0F172A', // slate-900
+                            light: '#1E293B', // slate-800
+                            darker: '#020617', // slate-950
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-start-dark text-gray-200 font-inter antialiased">
+
+    <div id="app-wrapper" class="flex flex-col min-h-screen">
+
+        <!-- ===== CABEÇALHO FIXO ===== -->
+        <header class="bg-start-darker shadow-lg sticky top-0 z-50 CABEÇALHO">
+            <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+                <!-- Logo e Título Fixo -->
+                <div>
+                    <a href="#home"
+                        class="flex items-center gap-2 text-2xl font-bold text-start-gold-light transition hover:transform  page-link"
+                        data-page="home">
+                        <!-- Ícone/Logo Placeholder (Forma Abstrata) -->
+                        <img src="img/zLOGO.png.png" alt="logo start Móvel" class="logo">
+                        Start Móvel
+                    </a>
+                </div>
+
+                <!-- Navegação Desktop -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home"
+                        class="nav-link page-link text-gray-300 hover:text-start-gold-light transition duration-300"
+                        data-page="home">Início</a>
+                    <a href="#passageiro"
+                        class="nav-link page-link text-gray-300 hover:text-start-gold-light transition duration-300"
+                        data-page="passageiro">Passageiro</a>
+                    <a href="#motorista"
+                        class="nav-link page-link text-gray-300 hover:text-start-gold-light transition duration-300"
+                        data-page="motorista">Seja Motorista</a>
+                    <a href="#divulgacao"
+                        class="nav-link page-link text-gray-300 hover:text-start-gold-light transition duration-300"
+                        data-page="divulgacao">Divulgação</a>
+                </div>
+
+                <!-- Botão de Ação Desktop -->
+
+
+                <!-- Botão Hamburger Mobile -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button"
+                        class="text-gray-300 hover:text-start-gold-light focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Menu Mobile (Oculto por padrão) -->
+            <div id="mobile-menu" class="md:hidden hidden bg-start-dark-light">
+                <a href="#home"
+                    class="block page-link nav-link py-2 px-6 text-gray-300 hover:bg-start-dark hover:text-start-gold-light"
+                    data-page="home">Início</a>
+                <a href="#passageiro"
+                    class="block page-link nav-link py-2 px-6 text-gray-300 hover:bg-start-dark hover:text-start-gold-light"
+                    data-page="passageiro">Passageiro</a>
+                <a href="#motorista"
+                    class="block page-link nav-link py-2 px-6 text-gray-300 hover:bg-start-dark hover:text-start-gold-light"
+                    data-page="motorista">Seja Motorista</a>
+                <a href="#divulgacao"
+                    class="block page-link nav-link py-2 px-6 text-gray-300 hover:bg-start-dark hover:text-start-gold-light"
+                    data-page="divulgacao">Divulgação</a>
+                <div class="px-6 py-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.app.jawqiastartmovel"
+    target="_blank"  
+    rel="noopener noreferrer"
+    class="block text-center bg-start-gold hover:bg-start-gold-dark text-start-darker font-bold py-2 px-4 rounded-lg transition duration-300"
+    data-page="passageiro"> 
+    Começar a viajar
+</a>
+                </div>
+                <div class="px-6 py-4">
+                    <a href="https://play.google.com/store/apps/details?id=com.app.tzlmydstartmovelmotoristas&pcampaignid=web_share"
+    target="_blank"  
+    rel="noopener noreferrer"
+    class="block text-center bg-start-gold hover:bg-start-gold-dark text-start-darker font-bold py-2 px-4 rounded-lg transition duration-300"
+    data-page="passageiro"> 
+    Seja motorista
+</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- ===== CONTEÚDO PRINCIPAL (PÁGINAS) ===== -->
+        <main id="main-content" class="flex-grow">
+
+            <!-- 1. PÁGINA: HOME (index.html) -->
+            <section id="home"
+                class="page-section container mx-auto px-6 py-16 md:py-32 min-h-[calc(100vh-200px)] flex items-center">
+                <div class="text-center mx-auto max-w-3xl ajeitar">
+                    <div class="celular">
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                            A <span class="text-start-gold-light">Revolução</span> da Mobilidade Começa Agora.
+                        </h1>
+                        <img src="img/dentroapp.png" alt="">
+                    </div>
+                    <p class="text-lg md:text-xl text-gray-300 mb-12">
+                        Seja você o passageiro ou o motorista, a Start Móvel tem o caminho certo para você. Rápido,
+                        seguro e na palma da sua mão.
+                    </p>
+                    <p style="font-weight: bolder; margin-bottom: 30px;">
+                        Não perca tempo! Baixe e instale o Start Móvel agora mesmo:
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <!-- Botões da App Store e Play Store -->
+                        <a href="#"
+                            class="bg-start-dark-light border border-gray-600 hover:border-start-gold text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-300 shadow-lg flex items-center justify-center gap-3">
+                            <!-- Ícone Apple -->
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18.711 17.558c.241 2.228-1.583 3.42-2.924 3.447-1.129.022-1.74-.717-3.219-.717s-2.02.717-3.149.74c-1.39.022-3.324-1.22-3.565-3.447-2.317 0-4.226-3.214-4.226-6.388 0-2.392 1.34-4.48 2.972-5.46a4.67 4.67 0 014.226-1.58C11.97 3.65 13.098 5 14.614 5c1.445 0 2.268-1.328 3.518-1.488 1.49-.196 3.193.74 3.82 2.368-2.062 1.258-3.34 3.737-3.34 5.753 0 2.457 1.637 3.84 3.1 4.925zM14.685 3.03C14.157 2.1 13.316 1.025 12.188.998c-1.341-.023-2.65 1.05-3.342 1.95-.595.788-1.21 2.066-1.042 3.18 1.468.22 2.855-1.05 3.546-1.95.548-.717 1.256-1.88 2.335-1.928z">
+                                </path>
+                            </svg>
+                            <span>App Store</span>
+                        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.app.jawqiastartmovel"
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="bg-start-dark-light border border-gray-600 hover:border-start-gold text-white font-semibold py-3 px-6 rounded-lg text-lg transition duration-300 shadow-lg flex items-center justify-center gap-3">
+    
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+            d="M3.02 2.149A.998.998 0 002 3.099v17.802c0 .503.385.922.88.98l13.14-7.59a1.002 1.002 0 000-1.761L3.88.98C3.59.805 3.25.9 3.02 2.15zM4 4.868l8.24 4.757-8.24 4.757V4.868zM20.24 11.1l-4.5-2.6-3.62 2.09 3.62 2.09 4.5-2.6a1 1 0 000-1.78zM15.74 15.5l-4.5 2.6V9.9l4.5 2.6a1 1 0 010 1.78z">
+        </path>
+    </svg>
+    
+    <span>Google Play</span>
+</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. PÁGINA: PASSAGEIRO (passageiro.html) -->
+            <section id="passageiro" class="page-section hidden container mx-auto px-6 py-16 md:py-24">
+                <div class="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+                    <!-- Bloco de Texto -->
+                    <div class="w-full md:w-1/2">
+                        <span class="text-sm font-semibold text-start-gold-light uppercase tracking-wider">Para
+                            Passageiros</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Escolha a sua viagem, do seu
+                            jeito.</h2>
+                        <p class="text-gray-300 text-lg mb-8">
+                            Veja por que a Start Móvel é a escolha certa. Oferecemos categorias para cada necessidade,
+                            desde economia e agilidade até exclusividade e conforto.
+                        </p>
+                        <!-- Categorias de Veículos -->
+
+
+                        <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="bg-start-dark-light p-4 rounded-lg shadow-lg border border-slate-700">
+                                <h4 class="font-bold text-start-gold-light">Start Comum</h4>
+                                <p class="text-sm text-gray-300 mt-1">A opção econômica para o dia a dia. Rápido,
+                                    prático e com a qualidade Start.</p>
+                            </div>
+                            <div class="bg-start-dark-light p-4 rounded-lg shadow-lg border border-slate-700">
+                                <h4 class="font-bold text-start-gold-light">Start Confort</h4>
+                                <p class="text-sm text-gray-300 mt-1">Carros mais novos e espaçosos para uma viagem com
+                                    mais comodidade.</p>
+                            </div>
+                            <div
+                                class="bg-start-dark-light p-4 rounded-lg shadow-lg border border-slate-700 sm:col-span-2">
+                                <h4 class="font-bold text-start-gold-light">Moto</h4>
+                                <p class="text-sm text-gray-300 mt-1">A experiência ideal para quem busca agilidade para fugir do trânsito. Entrega rápida e econômica em curtas distâncias, com a segurança que você precisa.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!-- Bloco de Imagem -->
+                    <div class="w-full md:w-1/2 passageiroim">
+                        <div class=" flex items-center justify-center relative pass">
+                            <!-- Placeholder para imagem do passageiro usando o app -->
+                            <img src="img/passageiroimg.jpg" alt="imagem passageiro">
+                            <span class="text-gray-500 absolute bottom-8"></span>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+
+            </section>
+
+            <!-- 3. PÁGINA: MOTORISTA (motorista.html) -->
+            <section id="motorista" class="page-section hidden container mx-auto px-6 py-16 md:py-24">
+                <div class="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-16">
+                    <!-- Bloco de Texto -->
+                    <div class="w-full md:w-1/2">
+                        <span class="text-sm font-semibold text-start-gold-light uppercase tracking-wider">Para
+                            Motoristas</span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">Por que ser um motorista Start?
+                        </h2>
+                        <p class="text-gray-300 text-lg mb-6">
+                            Junte-se a nós e descubra um ecossistema que valoriza o seu trabalho. Veja os benefícios de
+                            ser um parceiro Start Móvel:
+                        </p>
+                        <!-- Lista de Benefícios -->
+                        <ul class="space-y-4 text-gray-300 motoristabonito">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-start-gold-light mr-3 flex-shrink-0"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <div class="alinhar">
+                                <strong>Melhores Taxas:</strong> Mais dinheiro no seu bolso ao final de cada corrida.
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-start-gold-light mr-3 flex-shrink-0"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <div class="alinhar">
+                                <strong>Flexibilidade Total:</strong> Dirija quando e onde quiser, sem chefes ou
+                                escalas.
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-start-gold-light mr-3 flex-shrink-0"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <div class="alinhar">
+                                <strong>Suporte 24h:</strong> Nossa equipe está com você a qualquer momento, 7 dias por
+                                semana.
+                                </div>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-start-gold-light mr-3 flex-shrink-0"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <div class="alinhar">
+                                <strong>Pagamentos Rápidos:</strong> Receba seus ganhos sem burocracia e com agilidade.
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="https://play.google.com/store/apps/details?id=com.app.tzlmydstartmovelmotoristas&pcampaignid=web_share"
+    target="_blank"  
+    rel="noopener noreferrer"
+    class="block text-center bg-start-gold hover:bg-start-gold-dark text-start-darker font-bold py-2 px-4 rounded-lg transition duration-300"
+    data-page="passageiro"> 
+    quero ser motorista
+</a>
+                    </div>
+                    <!-- Bloco de Imagem -->
+                    <div class="w-full md:w-1/2 motorista">
+                        <div
+                    
+                            class=" flex items-center justify-center relative" style="border-radius: 40px;        -webkit-box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+    box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); ">
+                            <!-- Placeholder para imagem do motorista parceiro -->
+                          <img src="img/motoristaimg.jpg" alt="motorista imagem" style="border-radius: 40px;">
+                            <span class="text-gray-500 absolute bottom-8"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+<section id="divulgacao" class="page-section hidden container mx-auto px-6 py-16 md:py-24">
+    
+    <div class="flex flex-col items-center justify-center">
+
+        <div class="w-full max-w-3xl mx-auto text-center md:text-left">
+            
+            <span class="text-sm font-semibold text-start-gold-light uppercase tracking-wider">
+                Parcerias e Mídia
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mt-2 mb-4">
+                Conteúdo e Material de Divulgação.
+            </h2>
+            <p class="text-gray-300 text-lg mb-8">
+                É jornalista, influenciador digital, tem uma empresa ou busca uma parceria estratégica? Entre em contato com
+                nossa equipe de comunicação para divulgação.
+            </p>
+            
+            <div class="flex justify-center md:justify-start">
+                <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+                    class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg text-md transition duration-300 shadow-lg inline-flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+                        <path
+                            d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.06 21.94L7.32 20.58C8.77 21.39 10.37 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 3.67C16.56 3.67 20.28 7.38 20.28 11.91C20.28 16.44 16.56 20.15 12.04 20.15C10.48 20.15 8.99 19.72 7.7 18.96L7.3 18.72L3.9 19.7L5.02 16.41L4.77 16C3.92 14.63 3.46 13.09 3.46 11.91C3.46 7.38 7.17 3.67 12.04 3.67M17.36 14.99C17.11 14.86 15.9 14.29 15.65 14.2C15.41 14.11 15.24 14.07 15.08 14.31C14.92 14.56 14.41 15.12 14.29 15.29C14.17 15.45 14.04 15.47 13.8 15.35C13.56 15.22 12.76 14.94 11.78 14.05C11.01 13.36 10.49 12.5 10.33 12.25C10.17 12 10.28 11.88 10.4 11.76C10.51 11.65 10.64 11.47 10.77 11.32C10.89 11.16 10.93 11.04 11.01 10.88C11.1 10.72 11.06 10.59 11 10.47C10.94 10.35 10.43 9.06 10.21 8.5C10 7.94 9.79 7.99 9.64 7.97C9.49 7.96 9.32 7.96 9.16 7.96C9 7.96 8.73 8.04 8.5 8.28C8.28 8.53 7.77 9 7.77 10.05C7.77 11.11 8.53 12.12 8.65 12.28C8.77 12.44 9.92 14.23 11.69 14.97C13.46 15.71 14.04 15.93 14.43 16.07C14.82 16.22 15.31 16.19 15.6 16.1C15.93 16 16.58 15.54 16.79 15.29C17.01 15.04 17.01 14.86 16.96 14.74C16.91 14.62 16.8 14.56 16.6 14.47C16.4 14.37 16.19 14.31 15.98 14.25C15.77 14.19 17.61 15.11 17.36 14.99Z">
+                        </path>
+                    </svg>
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        </div>
+</section>
+
+        </main>
+
+        <!-- ===== RODAPÉ FIXO ===== -->
+<footer class="bg-start-darker mt-16">
+    <div class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 custom-footer-columns">
+            
+            <div class="md:col-span-2">
+                <h3 class="text-xl font-bold text-start-gold-light">Start Móvel</h3>
+                <p class="text-gray-400 text-sm mt-2">Sua nova forma de se mover pela cidade.</p>
+                
+               <div class="flex space-x-4 mt-6">
+    <a href="https://www.instagram.com/start_movel/" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Ir para Instagram Start Móvel"
+       class="text-gray-400 hover:text-start-gold-light transition">
+        
+        <img src="img/logoinst.png" 
+             alt="Logo do Instagram" 
+             style="width: 50px;">
+             
+    </a>
+</div>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-gray-200 uppercase tracking-wider">Dúvidas</h4>
+                <nav class="mt-4 space-y-2">
+                    <a href="#passageiro" data-page="passageiro"
+                        class="block text-gray-400 hover:text-start-gold-light transition page-link">Por que ir
+                        com a gente?</a>
+                    <a href="#motorista" data-page="motorista"
+                        class="block text-gray-400 hover:text-start-gold-light transition page-link">Quais os
+                        benefícios?</a>
+                </nav>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-gray-200 uppercase tracking-wider">Empresa</h4>
+                <nav class="mt-4 space-y-2">
+                    <a href="#motorista" data-page="motorista"
+                        class="block text-gray-400 hover:text-start-gold-light transition page-link">Seja
+                        Motorista</a>
+                    <a href="#divulgacao" data-page="divulgacao"
+                        class="block text-gray-400 hover:text-start-gold-light transition page-link">Parcerias e
+                        Mídia</a>
+                </nav>
+            </div>
+        </div>
+        
+        <hr class="border-gray-700 my-8">
+        
+        <p class="text-center text-gray-500 text-sm">
+            &copy; 2025 Start Móvel. Todos os direitos reservados.
+        </p>
+    </div>
+</footer>
+
+    </div>
+
+    <!-- ===== Botão Flutuante do WhatsApp ===== -->
+    <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-40 transition transform hover:scale-110">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img"
+            aria-label="Falar no WhatsApp">
+            <path
+                d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.06 21.94L7.32 20.58C8.77 21.39 10.37 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2M12.04 3.67C16.56 3.67 20.28 7.38 20.28 11.91C20.28 16.44 16.56 20.15 12.04 20.15C10.48 20.15 8.99 19.72 7.7 18.96L7.3 18.72L3.9 19.7L5.02 16.41L4.77 16C3.92 14.63 3.46 13.09 3.46 11.91C3.46 7.38 7.17 3.67 12.04 3.67M17.36 14.99C17.11 14.86 15.9 14.29 15.65 14.2C15.41 14.11 15.24 14.07 15.08 14.31C14.92 14.56 14.41 15.12 14.29 15.29C14.17 15.45 14.04 15.47 13.8 15.35C13.56 15.22 12.76 14.94 11.78 14.05C11.01 13.36 10.49 12.5 10.33 12.25C10.17 12 10.28 11.88 10.4 11.76C10.51 11.65 10.64 11.47 10.77 11.32C10.89 11.16 10.93 11.04 11.01 10.88C11.1 10.72 11.06 10.59 11 10.47C10.94 10.35 10.43 9.06 10.21 8.5C10 7.94 9.79 7.99 9.64 7.97C9.49 7.96 9.32 7.96 9.16 7.96C9 7.96 8.73 8.04 8.5 8.28C8.28 8.53 7.77 9 7.77 10.05C7.77 11.11 8.53 12.12 8.65 12.28C8.77 12.44 9.92 14.23 11.69 14.97C13.46 15.71 14.04 15.93 14.43 16.07C14.82 16.22 15.31 16.19 15.6 16.1C15.93 16 16.58 15.54 16.79 15.29C17.01 15.04 17.01 14.86 16.96 14.74C16.91 14.62 16.8 14.56 16.6 14.47C16.4 14.37 16.19 14.31 15.98 14.25C15.77 14.19 17.61 15.11 17.36 14.99Z">
+            </path>
+        </svg>
+    </a>
+
+    <script src="script.js" defer></script>
+
+
+</body>
+
+</html>

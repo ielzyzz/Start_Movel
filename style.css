@@ -1,0 +1,97 @@
+  /* Estilo para a barra de rolagem (opcional, mas contribui para o tema) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617; /* start-dark-darker */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155; /* slate-700 */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #F59E0B; /* start-gold */
+        }
+        /* Classe para transição suave de fade-in */
+        .page-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* style melhor */
+
+.logo{
+width: 100px;
+
+}
+
+.CABEÇALHO{
+    background-color: #0f172a;
+    -webkit-box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+    box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+ 
+    
+}
+.celular img{
+width: 300px;
+}
+#home {
+padding-bottom: 20px;
+padding-top:40px;
+}
+.celular{
+
+    display:flex;
+    width: auto;
+}
+
+.custom-footer-columns {
+    background-color: rgba(21, 26, 54, 0.76) ;
+    padding: 40px;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+
+.passageiroim .pass{
+background-color: #f59f0b00;
+
+}
+.passageiroim img{
+    width: 450px;
+    border-radius: 20px;
+        -webkit-box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+    box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+}
+
+
+
+            /* MOBILE celular */    
+@media screen and (max-width: 768px) {
+    .celular img{
+width: 150px;}
+
+.passageiroim img{
+    width: 250px;
+    border-radius: 20px;
+        -webkit-box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+    box-shadow: 1px 4px 15px 11px rgba(0,0,0,0.79); 
+}
+.lado{
+    background-color: #F59E0B;
+    display: flex;
+    flex-direction: row;
+}
+.motoristabonito{
+    background-color: #020617b0; padding: 20px; border-radius: 40px;
+
+}
+.alinhar{
+
+
+}
+    }
